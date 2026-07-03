@@ -8,32 +8,25 @@ import JsonLd from "@/components/JsonLd";
 import { CategoryCard } from "@/components/Cards";
 import { SectionHead, CriteriaTable, Checklist, AffiliateNotice, AuthorBox } from "@/components/Bits";
 import { casinos } from "@/data/casinos";
+import { generalWeighting } from "@/lib/methodology";
 import { faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Live Casino Reviews (2026) — Best Live Dealer Sites Ranked",
+  title: "Casino Reviews (2026) — Best Live, Slots & Bonus Sites Ranked",
   description:
-    "Independent live casino reviews and rankings. Compare the best live dealer casinos by game quality, licensing, withdrawal speed, mobile experience and bonus terms.",
+    "Independent casino reviews and rankings. Compare the best casinos by bonus value, live game and slots quality, licensing, withdrawal speed and mobile experience.",
   alternates: { canonical: "/live-casino-reviews/" },
 };
 
-const criteria = [
-  { name: "Live dealer game quality", weight: 25 },
-  { name: "Licensing & safety", weight: 20 },
-  { name: "Payments & withdrawals", weight: 15 },
-  { name: "Mobile experience", weight: 15 },
-  { name: "Bonus transparency", weight: 10 },
-  { name: "Customer support", weight: 10 },
-  { name: "Responsible gambling tools", weight: 5 },
-];
+const criteria = generalWeighting;
 
 const categories = [
   { title: "Best Live Blackjack Casinos", keyword: "best live blackjack casinos", cta: "View", href: "/live-blackjack/best-live-blackjack-casinos/" },
-  { title: "Fast Withdrawal Casinos", keyword: "fast withdrawal live casino", cta: "View", href: "/payment-methods/fast-withdrawal-live-casinos/" },
+  { title: "Best Slot Casinos", keyword: "best slot casinos", cta: "View", href: "/slots/best-slot-casinos/" },
+  { title: "Best Casino Bonuses", keyword: "best casino bonuses", cta: "View", href: "/casino-bonuses/" },
+  { title: "Fast Withdrawal Casinos", keyword: "fast withdrawal casino", cta: "View", href: "/payment-methods/fast-withdrawal-live-casinos/" },
   { title: "Best Live Poker Casinos", keyword: "best live casino poker games", cta: "View", href: "/live-poker/best-live-casino-poker-games/" },
-  { title: "Low Stakes Live Casinos", keyword: "low stakes live blackjack", cta: "View", href: "/live-blackjack/low-stakes-live-blackjack/" },
-  { title: "Best Live Casino Bonuses", keyword: "best live casino bonuses", cta: "View", href: "/casino-bonuses/best-live-casino-bonuses/" },
   { title: "Best Live Casino Providers", keyword: "best live casino providers", cta: "View", href: "/providers/best-live-casino-providers/" },
 ];
 
@@ -47,7 +40,7 @@ const checkBeforeJoining = [
 ];
 
 const faqs = [
-  { q: "How do you rank live casinos?", a: "We score every casino against a weighted checklist: live game quality (25%), licensing and safety (20%), payments (15%), mobile (15%), bonus transparency (10%), support (10%) and responsible gambling tools (5%). See our How We Review page for the full method." },
+  { q: "How do you rank casinos?", a: "We score every casino against a weighted checklist: licensing & safety (20%), casino bonus value & transparency (20%), live casino quality (15%), slots library (15%), payments (15%), mobile (10%) and support & responsible gambling (5%). See our How We Review page for the full method." },
   { q: "Are the recommended live casinos safe?", a: "Every casino we list holds a licence from a recognised regulator such as the UKGC or MGA. We still recommend verifying the licence yourself and reading the terms before you deposit." },
   { q: "Do you get paid to recommend casinos?", a: "We may earn a commission from partner links, but this never affects our rankings. Positions are decided by our editorial methodology only." },
   { q: "What is the best live casino overall?", a: "It depends on what you value. Use the category shortcuts to find the best casino for blackjack, fast withdrawals, mobile play, poker or low stakes — the 'best' site is the one that fits how you play." },

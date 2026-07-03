@@ -7,12 +7,13 @@ import Breadcrumbs from "./Breadcrumbs";
 import Prose from "./Prose";
 import FaqSection from "./Faq";
 import CasinoTable from "./CasinoTable";
+import BonusWarning from "./BonusWarning";
 import JsonLd from "./JsonLd";
 import { AffiliateNotice, RgNotice, AuthorBox, formatDate } from "./Bits";
 import { articleSchema, faqSchema } from "@/lib/schema";
 import { author, site } from "@/lib/site";
 
-// Map best-list slugs to a casino filter tag so the embedded table is relevant
+// Map list slugs to a casino filter tag so the embedded table is relevant
 const listTag: Record<string, string> = {
   "/live-blackjack/best-live-blackjack-casinos/": "blackjack",
   "/live-blackjack/low-stakes-live-blackjack/": "low-stakes",
@@ -20,7 +21,17 @@ const listTag: Record<string, string> = {
   "/payment-methods/fast-withdrawal-live-casinos/": "fast-withdrawal",
   "/payment-methods/minimum-deposit-live-casinos/": "low-stakes",
   "/casino-bonuses/best-live-casino-bonuses/": "bonus",
+  "/casino-bonuses/best-slots-bonuses/": "slots",
+  "/casino-bonuses/free-spins-bonuses/": "free-spins",
+  "/casino-bonuses/low-deposit-bonuses/": "low-deposit",
+  "/slots/best-slot-casinos/": "slots",
+  "/slots/best-free-spins-casino-bonuses/": "free-spins",
+  "/slots/mobile-slot-casinos/": "mobile",
 };
+
+const embedsTable = (a: Article) => a.kind === "best-list" || a.kind === "slots-list";
+const isBonusRelated = (a: Article) =>
+  a.kind === "bonus" || a.kind === "slots-list" || a.kind === "best-list" || !!a.commercial;
 
 function tableFor(a: Article): Casino[] {
   const tag = listTag[a.slug];
@@ -74,13 +85,15 @@ export default function ArticleView({ slug }: { slug: string }) {
           <div>
             {a.commercial && <div style={{ marginBottom: 20 }}><AffiliateNotice /></div>}
 
-            {a.kind === "best-list" && (
+            {embedsTable(a) && (
               <div style={{ margin: "0 0 28px" }}>
                 <CasinoTable list={tableFor(a)} />
               </div>
             )}
 
             <Prose blocks={blocks} />
+
+            {isBonusRelated(a) && <div style={{ margin: "28px 0" }}><BonusWarning /></div>}
 
             <div style={{ margin: "28px 0" }}><RgNotice /></div>
 

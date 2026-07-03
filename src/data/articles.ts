@@ -6,13 +6,17 @@ export type ArticleKind =
   | "comparison"
   | "payment"
   | "safety"
-  | "bonus";
+  | "bonus"
+  | "slots-list"
+  | "slots-guide"
+  | "slots-provider";
 
 export type BlogCategory =
   | "Live Casino Reviews"
   | "Blackjack Guides"
   | "Poker Guides"
   | "Game Guides"
+  | "Slots"
   | "Payments"
   | "Casino Safety"
   | "Bonuses"
@@ -896,6 +900,291 @@ export const articles: Article[] = [
     keyword: "best live casino providers",
     intro:
       "The studio behind your table matters as much as the casino hosting it. We rank the best live casino providers by game range, stream quality, fairness and innovation.",
+    date: D,
+  },
+
+  // ───────────────────────── NEW BONUS ARTICLES ─────────────────────────
+  {
+    slug: "/casino-bonuses/best-slots-bonuses/",
+    section: "/casino-bonuses/",
+    sectionLabel: "Casino Bonuses",
+    category: "Bonuses",
+    kind: "bonus",
+    title: "Best Slots Bonuses",
+    seoTitle: "Best Slots Bonuses (2026) — Deposit Matches & Spins",
+    description:
+      "The best slots bonuses ranked by real value: match size, free spins, wagering and slot game weighting. Find offers built for slots players.",
+    keyword: "best slots bonuses",
+    intro:
+      "Slots contribute the most toward wagering, so slots bonuses can be excellent value. We ranked the best slots bonuses by match size, free spins and realistic wagering.",
+    date: D,
+    commercial: true,
+  },
+  {
+    slug: "/casino-bonuses/free-spins-bonuses/",
+    section: "/casino-bonuses/",
+    sectionLabel: "Casino Bonuses",
+    category: "Bonuses",
+    kind: "bonus",
+    title: "Best Free Spins Bonuses",
+    seoTitle: "Best Free Spins Bonuses (2026) — With & Without Wagering",
+    description:
+      "The best free spins bonuses ranked by spin count, eligible slots, spin value and wagering. Find genuine free spins offers, not gimmicks.",
+    keyword: "free spins bonuses",
+    intro:
+      "Free spins let you try slots with the casino's money. We ranked the best free spins bonuses by how many you get, which slots they work on, and the wagering attached.",
+    date: D,
+    commercial: true,
+    featured: true,
+  },
+  {
+    slug: "/casino-bonuses/low-deposit-bonuses/",
+    section: "/casino-bonuses/",
+    sectionLabel: "Casino Bonuses",
+    category: "Bonuses",
+    kind: "bonus",
+    title: "Low Deposit Casino Bonuses",
+    seoTitle: "Low Deposit Casino Bonuses — Claim From €/£5 & €/£10",
+    description:
+      "The best low deposit casino bonuses you can claim from just €/£5 or €/£10. Get bonus value without a big upfront deposit.",
+    keyword: "low deposit casino bonus",
+    intro:
+      "You don't need a big balance to claim a bonus. These low deposit casino bonuses trigger from as little as €/£5, all at licensed operators.",
+    date: D,
+    commercial: true,
+  },
+
+  // ───────────────────────── SLOTS ─────────────────────────
+  {
+    slug: "/slots/best-slot-casinos/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-list",
+    title: "Best Slot Casinos in 2026",
+    seoTitle: "Best Slot Casinos (2026) — Ranked by Library & Bonuses",
+    description:
+      "The best slot casinos ranked by library size, slot providers, bonus value and payout speed. Independent reviews of the top online slots sites.",
+    keyword: "best slot casinos",
+    intro:
+      "We ranked the best slot casinos by the size and quality of their slots library, the providers they carry, bonus value and how fast they pay out.",
+    date: D,
+    commercial: true,
+    featured: true,
+  },
+  {
+    slug: "/slots/best-online-slots-for-beginners/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-guide",
+    title: "Best Online Slots for Beginners",
+    seoTitle: "Best Online Slots for Beginners (2026) — Easy, Low-Risk Picks",
+    description:
+      "The best online slots for beginners: simple, lower-volatility games with high RTP and clear features. Start here before chasing big-win slots.",
+    keyword: "best online slots for beginners",
+    intro:
+      "Some slots are far friendlier to new players than others. These beginner slots have simple features, high RTP and lower volatility, so your balance lasts longer while you learn.",
+    date: D,
+    featured: true,
+  },
+  {
+    slug: "/slots/best-free-spins-casino-bonuses/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-list",
+    title: "Best Free Spins Casino Bonuses",
+    seoTitle: "Best Free Spins Casino Bonuses (2026) — Ranked",
+    description:
+      "The best free spins casino bonuses ranked by spin count, eligible slots and wagering. Find licensed casinos offering genuine free spins value.",
+    keyword: "best free spins casino",
+    intro:
+      "Free spins are the most popular slots promotion. We ranked the best free spins casinos by how many spins you get, which slots they apply to, and the wagering attached.",
+    date: D,
+    commercial: true,
+  },
+  {
+    slug: "/slots/high-rtp-slots/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-guide",
+    title: "High RTP Slots Explained",
+    seoTitle: "High RTP Slots Explained (2026) — Best Return-to-Player Games",
+    description:
+      "High RTP slots explained: what return-to-player means, why 96%+ matters, and a list of high RTP slots that offer better long-term value.",
+    keyword: "high RTP slots",
+    intro:
+      "RTP (return to player) tells you how much a slot pays back over the long run. This guide explains what counts as high RTP, why it matters, and which slots lead the pack.",
+    date: D,
+    featured: true,
+  },
+  {
+    slug: "/slots/slot-volatility/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-guide",
+    title: "Slot Volatility Explained",
+    seoTitle: "Slot Volatility Explained — Low vs High Variance Slots",
+    description:
+      "Slot volatility explained: what low, medium and high variance mean for your bankroll, and how to match slot volatility to how you like to play.",
+    keyword: "slot volatility",
+    intro:
+      "Volatility (or variance) describes how a slot pays: often and small, or rarely and big. This guide explains low vs high volatility and how to choose for your bankroll.",
+    date: D,
+  },
+  {
+    slug: "/slots/best-megaways-slots/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-guide",
+    title: "Best Megaways Slots",
+    seoTitle: "Best Megaways Slots (2026) — Top Titles & How They Work",
+    description:
+      "The best Megaways slots and how the Megaways engine works: shifting reels, up to 117,649 ways to win, RTP and volatility. Top titles ranked.",
+    keyword: "best Megaways slots",
+    intro:
+      "Megaways slots change the number of symbols on each reel every spin, creating up to 117,649 ways to win. This guide explains how they work and ranks the best titles.",
+    date: D,
+  },
+  {
+    slug: "/slots/bonus-buy-slots/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-guide",
+    title: "Best Bonus Buy Slots",
+    seoTitle: "Best Bonus Buy Slots (2026) — Feature Buy Games Explained",
+    description:
+      "The best bonus buy slots and how feature-buy works: paying to trigger the bonus round, the higher cost and risk, and where bonus buys are restricted.",
+    keyword: "bonus buy slots",
+    intro:
+      "Bonus buy slots let you pay to jump straight to the bonus round. This guide explains how feature buys work, the higher risk involved, and the best titles — plus why some regions ban them.",
+    date: D,
+  },
+  {
+    slug: "/slots/mobile-slot-casinos/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-list",
+    title: "Best Mobile Slot Casinos",
+    seoTitle: "Best Mobile Slot Casinos (2026) — Apps & Browser Play",
+    description:
+      "The best mobile slot casinos for playing slots on iOS and Android — smooth apps, portrait play, fast payments and strong slots libraries.",
+    keyword: "mobile slot casinos",
+    intro:
+      "If you spin mostly on a phone, the casino's mobile experience matters as much as its games. We ranked the best mobile slot casinos for apps, speed and library.",
+    date: D,
+    commercial: true,
+  },
+  {
+    slug: "/slots/new-online-slots/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-guide",
+    title: "New Online Slots This Month",
+    seoTitle: "New Online Slots This Month (2026) — Latest Releases",
+    description:
+      "The newest online slots this month: latest releases from Pragmatic Play, Nolimit City, Hacksaw and more, with RTP, volatility and where to play.",
+    keyword: "new online slots",
+    intro:
+      "New slots launch every week. Here are the latest online slots worth trying this month, with their RTP, volatility and mechanics explained.",
+    date: D,
+  },
+  {
+    slug: "/slots/pragmatic-play-slots-review/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-provider",
+    title: "Pragmatic Play Slots Review",
+    seoTitle: "Pragmatic Play Slots Review — Games, RTP & Verdict",
+    description:
+      "Pragmatic Play slots review: the studio behind Gates of Olympus and Sweet Bonanza. Game range, volatility, RTP and our verdict.",
+    keyword: "Pragmatic Play slots",
+    intro:
+      "Pragmatic Play is one of the most prolific slot studios, known for high-volatility hits. We review its range, RTP, standout titles and overall value.",
+    date: D,
+    featured: true,
+  },
+  {
+    slug: "/slots/playngo-slots-review/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-provider",
+    title: "Play'n GO Slots Review",
+    seoTitle: "Play'n GO Slots Review — Book of Dead & Beyond",
+    description:
+      "Play'n GO slots review: the studio behind Book of Dead and Reactoonz. Mobile-first design, RTP, standout titles and our verdict.",
+    keyword: "Play'n GO slots",
+    intro:
+      "Play'n GO is a mobile-first slot pioneer behind Book of Dead. We review its consistent, polished catalogue, RTP and best titles.",
+    date: D,
+  },
+  {
+    slug: "/slots/netent-slots-review/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-provider",
+    title: "NetEnt Slots Review",
+    seoTitle: "NetEnt Slots Review — Starburst, Gonzo's Quest & More",
+    description:
+      "NetEnt slots review: the classic studio behind Starburst and Gonzo's Quest. Beginner-friendly design, RTP, standout titles and verdict.",
+    keyword: "NetEnt slots",
+    intro:
+      "NetEnt is a veteran studio famous for polished, beginner-friendly slots like Starburst. We review its catalogue, RTP and best-known games.",
+    date: D,
+  },
+  {
+    slug: "/slots/hacksaw-gaming-slots-review/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-provider",
+    title: "Hacksaw Gaming Slots Review",
+    seoTitle: "Hacksaw Gaming Slots Review — High-Volatility Modern Slots",
+    description:
+      "Hacksaw Gaming slots review: modern high-volatility slots and scratch games like Wanted Dead or a Wild. Range, RTP and verdict.",
+    keyword: "Hacksaw Gaming slots",
+    intro:
+      "Hacksaw Gaming has become a favourite for modern, high-volatility slots. We review its fast-growing range, RTP and standout hits.",
+    date: D,
+  },
+  {
+    slug: "/slots/nolimit-city-slots-review/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-provider",
+    title: "Nolimit City Slots Review",
+    seoTitle: "Nolimit City Slots Review — Extreme Volatility & Max Wins",
+    description:
+      "Nolimit City slots review: extreme-volatility slots and huge max wins like Mental and San Quentin. Range, RTP, risk and verdict.",
+    keyword: "Nolimit City slots",
+    intro:
+      "Nolimit City is known for boundary-pushing, extreme-volatility slots with enormous max wins. We review its range, RTP and the risk that comes with it.",
+    date: D,
+  },
+  {
+    slug: "/slots/big-time-gaming-slots-review/",
+    section: "/slots/",
+    sectionLabel: "Slots",
+    category: "Slots",
+    kind: "slots-provider",
+    title: "Big Time Gaming Slots Review",
+    seoTitle: "Big Time Gaming Slots Review — Inventors of Megaways",
+    description:
+      "Big Time Gaming slots review: the studio that invented Megaways, behind Bonanza and White Rabbit. Range, RTP and verdict.",
+    keyword: "Big Time Gaming slots",
+    intro:
+      "Big Time Gaming invented the Megaways engine that reshaped the slots industry. We review its catalogue, its landmark titles and their RTP.",
     date: D,
   },
 ];

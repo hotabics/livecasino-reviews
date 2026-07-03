@@ -1,10 +1,14 @@
 import Link from "next/link";
 import CasinoTable from "@/components/CasinoTable";
 import ReviewCard from "@/components/ReviewCard";
-import { ArticleCard, CategoryCard, LinkCard } from "@/components/Cards";
-import { SectionHead, CriteriaTable, Checklist, RatingBadge } from "@/components/Bits";
+import BonusCard from "@/components/BonusCard";
+import BonusWarning from "@/components/BonusWarning";
+import { ArticleCard, CategoryCard } from "@/components/Cards";
+import { SectionHead, CriteriaTable, Checklist } from "@/components/Bits";
 import { casinos } from "@/data/casinos";
 import { getArticle, articles } from "@/data/articles";
+import { resolvedBonusPicks } from "@/data/bonuses";
+import { generalWeighting } from "@/lib/methodology";
 import { site } from "@/lib/site";
 
 const A = (slug: string) => getArticle(slug)!;
@@ -20,9 +24,9 @@ const heroBadges = [
 
 const quickTiles = [
   { ic: "🏆", title: "Casino Reviews", sub: "Ranked & rated", go: "Compare", href: "/live-casino-reviews/" },
-  { ic: "🃏", title: "Live Blackjack", sub: "Guides & strategy", go: "Learn", href: "/live-blackjack/" },
-  { ic: "⚡", title: "Fast Withdrawals", sub: "Timed payouts", go: "See fastest", href: "/payment-methods/fast-withdrawal-live-casinos/" },
-  { ic: "🛡️", title: "Casino Safety", sub: "Licences & checks", go: "Stay safe", href: "/casino-safety/" },
+  { ic: "🎰", title: "Online Slots", sub: "Slot casinos & guides", go: "Explore", href: "/slots/" },
+  { ic: "🎁", title: "Casino Bonuses", sub: "Offers & free spins", go: "See bonuses", href: "/casino-bonuses/" },
+  { ic: "🃏", title: "Live Casino", sub: "Blackjack, poker & more", go: "Learn", href: "/live-dealer-games/" },
 ];
 
 const trustChips = [
@@ -32,23 +36,24 @@ const trustChips = [
   { ic: "18", label: "18+ · Play responsibly" },
 ];
 
-const criteria = [
-  { name: "Live dealer game quality", weight: 25 },
-  { name: "Licensing & safety", weight: 20 },
-  { name: "Payments & withdrawals", weight: 15 },
-  { name: "Mobile experience", weight: 15 },
-  { name: "Bonus transparency", weight: 10 },
-  { name: "Customer support", weight: 10 },
-  { name: "Responsible gambling tools", weight: 5 },
-];
+const criteria = generalWeighting;
 
 const categories = [
-  { title: "Best Live Blackjack Casinos", keyword: "best live blackjack casinos", cta: "View Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
-  { title: "Best Fast Withdrawal Live Casinos", keyword: "fast withdrawal live casino", cta: "Compare Fast Payout Sites", href: "/payment-methods/fast-withdrawal-live-casinos/" },
-  { title: "Best Mobile Live Casinos", keyword: "best mobile live casino", cta: "View Mobile Sites", href: "/live-casino-reviews/" },
-  { title: "Best Live Poker Casinos", keyword: "best live casino poker games", cta: "Explore Live Poker", href: "/live-poker/best-live-casino-poker-games/" },
-  { title: "Best Live Casino Bonuses", keyword: "best live casino bonuses", cta: "Compare Bonuses", href: "/casino-bonuses/best-live-casino-bonuses/" },
-  { title: "Best Low Stakes Live Casinos", keyword: "low stakes live blackjack", cta: "Find Low Limit Tables", href: "/live-blackjack/low-stakes-live-blackjack/" },
+  { title: "Best Live Casinos", keyword: "best live casinos", cta: "View Live Casinos", href: "/live-casino-reviews/" },
+  { title: "Best Slot Casinos", keyword: "best slot casinos", cta: "View Slot Sites", href: "/slots/best-slot-casinos/" },
+  { title: "Best Casino Bonuses", keyword: "best casino bonuses", cta: "Compare Bonuses", href: "/casino-bonuses/" },
+  { title: "Best Free Spins Bonuses", keyword: "free spins bonuses", cta: "Get Free Spins", href: "/casino-bonuses/free-spins-bonuses/" },
+  { title: "Fast Withdrawal Casinos", keyword: "fast withdrawal casino", cta: "Compare Fast Payouts", href: "/payment-methods/fast-withdrawal-live-casinos/" },
+  { title: "Best Mobile Casinos", keyword: "mobile casinos", cta: "View Mobile Sites", href: "/slots/mobile-slot-casinos/" },
+];
+
+const slotGuides = [
+  { title: "Best Slot Casinos", keyword: "best slot casinos", href: "/slots/best-slot-casinos/", cta: "Compare" },
+  { title: "Best Slots for Beginners", keyword: "best online slots for beginners", href: "/slots/best-online-slots-for-beginners/", cta: "Read guide" },
+  { title: "High RTP Slots", keyword: "high RTP slots", href: "/slots/high-rtp-slots/", cta: "Read guide" },
+  { title: "Slot Volatility Explained", keyword: "slot volatility", href: "/slots/slot-volatility/", cta: "Read guide" },
+  { title: "Best Megaways Slots", keyword: "best Megaways slots", href: "/slots/best-megaways-slots/", cta: "Read guide" },
+  { title: "Best Free Spins Casinos", keyword: "best free spins casino", href: "/slots/best-free-spins-casino-bonuses/", cta: "Compare" },
 ];
 
 const gameGuides = [
@@ -154,12 +159,12 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* TOP LIVE CASINOS */}
+      {/* TOP CASINOS */}
       <section className="section container">
         <SectionHead
           eyebrow="Rankings"
-          title="Best Live Casino Sites This Month"
-          intro="Our current top-rated live dealer casinos, ranked by our full review methodology. Every operator is licensed and independently checked."
+          title="Best Casino Sites This Month"
+          intro="Our top-rated casinos for live games, slots and bonuses — ranked by our full review methodology. Bonus, licensing and payout speed all count. Every operator is licensed."
         />
         <CasinoTable />
         <div className="notice notice-affiliate" style={{ marginTop: 16 }}>
@@ -168,25 +173,43 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* BEST BY CATEGORY */}
+      {/* BEST CASINO BONUSES THIS MONTH */}
       <section className="section bg-white">
         <div className="container">
-          <SectionHead eyebrow="Shortcuts" title="Find the Best Live Casino by Category" />
+          <SectionHead
+            eyebrow="Bonuses"
+            title="Best Casino Bonuses This Month"
+            intro="Our pick of the best welcome offers, free spins and no-wagering bonuses. Compare the terms carefully — a big bonus only matters if you can realistically clear it."
+          />
           <div className="grid grid-3">
-            {categories.map((c) => <CategoryCard key={c.title} {...c} />)}
+            {resolvedBonusPicks().map((p) => <BonusCard key={p.category} pick={p} />)}
+          </div>
+          <div style={{ marginTop: 22 }}><BonusWarning /></div>
+          <div className="cta-row">
+            <Link href="/casino-bonuses/" className="btn btn-gold">See All Casino Bonuses</Link>
+            <Link href="/casino-bonuses/free-spins-bonuses/" className="btn btn-outline">Free Spins Bonuses</Link>
           </div>
         </div>
       </section>
 
-      {/* HOW WE REVIEW */}
+      {/* BEST BY CATEGORY */}
       <section className="section container">
-        <div className="grid grid-2" style={{ alignItems: "center", gap: 40 }}>
+        <SectionHead eyebrow="Shortcuts" title="Find the Best Casino by Category" />
+        <div className="grid grid-3">
+          {categories.map((c) => <CategoryCard key={c.title} {...c} />)}
+        </div>
+      </section>
+
+      {/* HOW WE REVIEW */}
+      <section className="section bg-white">
+        <div className="container grid grid-2" style={{ alignItems: "center", gap: 40 }}>
           <div>
-            <SectionHead eyebrow="Methodology" title="How We Review Live Casinos" />
+            <SectionHead eyebrow="Methodology" title="How We Review Casinos" />
             <p className="text-muted">
-              Every live casino review is based on a structured checklist covering licensing, live
-              dealer game variety, blackjack and poker tables, mobile performance, payment speed,
-              bonus terms, customer support, and responsible gambling tools.
+              Every review is based on a structured checklist covering licensing, casino bonus value
+              and transparency, live casino quality, the slots library, payment speed, mobile
+              performance, and responsible gambling tools. Bonus value now carries equal weight to
+              licensing.
             </p>
             <Link href="/how-we-review/" className="btn btn-outline" style={{ marginTop: 8 }}>
               Read Our Review Methodology
@@ -196,6 +219,23 @@ export default function HomePage() {
             <h3 style={{ marginBottom: 14 }}>Rating criteria &amp; weightings</h3>
             <CriteriaTable rows={criteria} />
           </div>
+        </div>
+      </section>
+
+      {/* SLOTS */}
+      <section className="section container">
+        <SectionHead
+          eyebrow="Online Slots"
+          title="Online Slots & Slot Casino Guides"
+          intro="Beyond live casino, we review the best slot sites and explain RTP, volatility, Megaways and more — so you can play slots with better information."
+        />
+        <div className="grid grid-3">
+          {slotGuides.map((g) => (
+            <CategoryCard key={g.title} title={g.title} keyword={g.keyword} cta={g.cta} href={g.href} />
+          ))}
+        </div>
+        <div className="cta-row">
+          <Link href="/slots/" className="btn btn-gold">Explore All Slots Guides</Link>
         </div>
       </section>
 

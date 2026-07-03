@@ -8,40 +8,87 @@ export type MegaItem = {
   featured?: { title: string; text: string; href: string; cta: string };
 };
 
-// casino.org-style mega-menu: each top-level item reveals a columned panel.
+export const mainNav: NavLink[] = [
+  { label: "Home", href: "/" },
+  { label: "Casino Reviews", href: "/live-casino-reviews/" },
+  { label: "Live Casino", href: "/live-dealer-games/" },
+  { label: "Blackjack", href: "/live-blackjack/" },
+  { label: "Poker", href: "/live-poker/" },
+  { label: "Slots", href: "/slots/" },
+  { label: "Bonuses", href: "/casino-bonuses/" },
+  { label: "Payments", href: "/payment-methods/" },
+  { label: "Casino Safety", href: "/casino-safety/" },
+  { label: "Blog", href: "/blog/" },
+];
+
+// Quick-access links (mega "Best Of" + mobile shortcuts)
+export const secondaryNav: NavLink[] = [
+  { label: "Best Live Casinos", href: "/live-casino-reviews/" },
+  { label: "Best Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
+  { label: "Best Slot Casinos", href: "/slots/best-slot-casinos/" },
+  { label: "Best Casino Bonuses", href: "/casino-bonuses/" },
+  { label: "Free Spins Bonuses", href: "/casino-bonuses/free-spins-bonuses/" },
+  { label: "Fast Withdrawal Casinos", href: "/payment-methods/fast-withdrawal-live-casinos/" },
+  { label: "Mobile Casinos", href: "/slots/mobile-slot-casinos/" },
+  { label: "How We Review", href: "/how-we-review/" },
+];
+
+// casino.org-style mega-menu
 export const megaNav: MegaItem[] = [
   {
-    label: "Reviews",
+    label: "Casino Reviews",
     href: "/live-casino-reviews/",
     columns: [
       {
         heading: "Rankings",
         links: [
-          { label: "Best Live Casinos", href: "/live-casino-reviews/", desc: "Our top-rated sites this month" },
-          { label: "Best Live Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
+          { label: "Best Live Casinos", href: "/live-casino-reviews/", desc: "Top-rated live dealer sites" },
+          { label: "Best Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
+          { label: "Best Slot Casinos", href: "/slots/best-slot-casinos/" },
+          { label: "Best Casino Bonuses", href: "/casino-bonuses/", badge: "Hot" },
           { label: "Fast Withdrawal Casinos", href: "/payment-methods/fast-withdrawal-live-casinos/" },
-          { label: "Best Live Casino Bonuses", href: "/casino-bonuses/best-live-casino-bonuses/" },
+          { label: "Mobile Casinos", href: "/slots/mobile-slot-casinos/" },
         ],
       },
       {
         heading: "Top Casino Reviews",
         links: [
           { label: "Aurora Live Casino", href: "/reviews/aurora-live/" },
+          { label: "Reelhouse Spins (Slots)", href: "/reviews/reelhouse-spins/" },
           { label: "Velvet Tables", href: "/reviews/velvet-tables/" },
-          { label: "Royal Dealer Club", href: "/reviews/royal-dealer/" },
-          { label: "Neon Live", href: "/reviews/neon-live/" },
+          { label: "Fortune Reels", href: "/reviews/fortune-reels/" },
         ],
       },
     ],
-    featured: {
-      title: "How We Review",
-      text: "Our transparent, weighted methodology — no pay-to-rank.",
-      href: "/how-we-review/",
-      cta: "See the method",
-    },
+    featured: { title: "How We Review", text: "Our transparent, weighted method — bonus, slots, live & safety.", href: "/how-we-review/", cta: "See the method" },
   },
   {
-    label: "Live Blackjack",
+    label: "Live Casino",
+    href: "/live-dealer-games/",
+    columns: [
+      {
+        heading: "Live game guides",
+        links: [
+          { label: "Best Games for Beginners", href: "/live-dealer-games/best-live-dealer-games-for-beginners/" },
+          { label: "Live Roulette Guide", href: "/live-dealer-games/live-roulette-guide/" },
+          { label: "Baccarat vs Blackjack", href: "/live-dealer-games/baccarat-vs-blackjack/" },
+          { label: "Game Shows Explained", href: "/live-dealer-games/live-casino-game-shows/" },
+        ],
+      },
+      {
+        heading: "Providers & value",
+        links: [
+          { label: "Best Live Casino Providers", href: "/providers/best-live-casino-providers/" },
+          { label: "Evolution Review", href: "/providers/evolution-live-casino-review/" },
+          { label: "Live Casino RTP", href: "/live-dealer-games/live-casino-rtp/" },
+          { label: "Volatility Explained", href: "/live-dealer-games/live-casino-volatility/" },
+        ],
+      },
+    ],
+    featured: { title: "Best Live Casinos", text: "Licensed live dealer sites, ranked and compared.", href: "/live-casino-reviews/", cta: "Compare now" },
+  },
+  {
+    label: "Blackjack",
     href: "/live-blackjack/",
     columns: [
       {
@@ -59,19 +106,13 @@ export const megaNav: MegaItem[] = [
           { label: "Live vs RNG Blackjack", href: "/live-blackjack/live-blackjack-vs-rng/" },
           { label: "Common Mistakes", href: "/live-blackjack/mistakes/" },
           { label: "Card Counting", href: "/live-blackjack/card-counting/" },
-          { label: "Low Stakes Tables", href: "/live-blackjack/low-stakes-live-blackjack/" },
+          { label: "Best Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
         ],
       },
     ],
-    featured: {
-      title: "Best Blackjack Casinos",
-      text: "Licensed sites ranked for table variety and limits.",
-      href: "/live-blackjack/best-live-blackjack-casinos/",
-      cta: "Compare now",
-    },
   },
   {
-    label: "Live Poker",
+    label: "Poker",
     href: "/live-poker/",
     columns: [
       {
@@ -95,28 +136,57 @@ export const megaNav: MegaItem[] = [
     ],
   },
   {
-    label: "Live Games",
-    href: "/live-dealer-games/",
+    label: "Slots",
+    href: "/slots/",
     columns: [
       {
-        heading: "Game guides",
+        heading: "Slot casinos & bonuses",
         links: [
-          { label: "Best Games for Beginners", href: "/live-dealer-games/best-live-dealer-games-for-beginners/" },
-          { label: "Live Roulette Guide", href: "/live-dealer-games/live-roulette-guide/" },
-          { label: "Baccarat vs Blackjack", href: "/live-dealer-games/baccarat-vs-blackjack/" },
-          { label: "Game Shows Explained", href: "/live-dealer-games/live-casino-game-shows/" },
+          { label: "Best Slot Casinos", href: "/slots/best-slot-casinos/", badge: "New" },
+          { label: "Best Free Spins Casinos", href: "/slots/best-free-spins-casino-bonuses/" },
+          { label: "Best Slots Bonuses", href: "/casino-bonuses/best-slots-bonuses/" },
+          { label: "Mobile Slot Casinos", href: "/slots/mobile-slot-casinos/" },
         ],
       },
       {
-        heading: "Providers & value",
+        heading: "Slot guides",
         links: [
-          { label: "Best Live Casino Providers", href: "/providers/best-live-casino-providers/" },
-          { label: "Evolution Review", href: "/providers/evolution-live-casino-review/" },
-          { label: "Live Casino RTP", href: "/live-dealer-games/live-casino-rtp/" },
-          { label: "Volatility Explained", href: "/live-dealer-games/live-casino-volatility/" },
+          { label: "Best Slots for Beginners", href: "/slots/best-online-slots-for-beginners/" },
+          { label: "High RTP Slots", href: "/slots/high-rtp-slots/" },
+          { label: "Slot Volatility Explained", href: "/slots/slot-volatility/" },
+          { label: "Best Megaways Slots", href: "/slots/best-megaways-slots/" },
+          { label: "New Online Slots", href: "/slots/new-online-slots/" },
         ],
       },
     ],
+    featured: { title: "Slot Providers", text: "Pragmatic Play, Play'n GO, Nolimit City & more, reviewed.", href: "/slots/pragmatic-play-slots-review/", cta: "Read reviews" },
+  },
+  {
+    label: "Bonuses",
+    href: "/casino-bonuses/",
+    columns: [
+      {
+        heading: "By type",
+        links: [
+          { label: "Best Casino Bonuses", href: "/casino-bonuses/best-live-casino-bonuses/", badge: "Hot" },
+          { label: "Best Free Spins Bonuses", href: "/casino-bonuses/free-spins-bonuses/" },
+          { label: "No Wagering Bonuses", href: "/casino-bonuses/no-wagering-casino-bonus/" },
+          { label: "Low Deposit Bonuses", href: "/casino-bonuses/low-deposit-bonuses/" },
+          { label: "Best Slots Bonuses", href: "/casino-bonuses/best-slots-bonuses/" },
+          { label: "Best Live Casino Bonuses", href: "/casino-bonuses/live-dealer-bonus/" },
+        ],
+      },
+      {
+        heading: "Understand bonuses",
+        links: [
+          { label: "Wagering Requirements", href: "/casino-bonuses/wagering-requirements-explained/" },
+          { label: "Bonus Terms Explained", href: "/casino-safety/casino-bonus-terms-explained/" },
+          { label: "Blackjack Bonus Rules", href: "/casino-bonuses/blackjack-bonus-rules/" },
+          { label: "Avoid Bonus Traps", href: "/casino-safety/casino-bonus-traps/" },
+        ],
+      },
+    ],
+    featured: { title: "Compare terms first", text: "Check wagering, eligible games & max cashout before you claim.", href: "/casino-bonuses/wagering-requirements-explained/", cta: "Learn more" },
   },
   {
     label: "Payments",
@@ -143,7 +213,7 @@ export const megaNav: MegaItem[] = [
     ],
   },
   {
-    label: "Safety",
+    label: "Casino Safety",
     href: "/casino-safety/",
     columns: [
       {
@@ -165,69 +235,40 @@ export const megaNav: MegaItem[] = [
         ],
       },
     ],
-    featured: {
-      title: "Responsible Gambling",
-      text: "Set limits, spot the signs, find free help in your region.",
-      href: "/responsible-gambling/",
-      cta: "Get support",
-    },
+    featured: { title: "Responsible Gambling", text: "Set limits, spot the signs, find free help in your region.", href: "/responsible-gambling/", cta: "Get support" },
   },
-  { label: "Bonuses", href: "/casino-bonuses/" },
   { label: "Blog", href: "/blog/" },
-];
-
-
-export const mainNav: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Live Casino Reviews", href: "/live-casino-reviews/" },
-  { label: "Live Blackjack", href: "/live-blackjack/" },
-  { label: "Live Poker", href: "/live-poker/" },
-  { label: "Live Dealer Games", href: "/live-dealer-games/" },
-  { label: "Payment Methods", href: "/payment-methods/" },
-  { label: "Casino Safety", href: "/casino-safety/" },
-  { label: "Blog", href: "/blog/" },
-];
-
-// Secondary "Best of" dropdown
-export const secondaryNav: NavLink[] = [
-  { label: "Best Live Casinos", href: "/live-casino-reviews/" },
-  { label: "Best Live Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
-  { label: "Fast Withdrawal Casinos", href: "/payment-methods/fast-withdrawal-live-casinos/" },
-  { label: "Mobile Live Casinos", href: "/live-casino-reviews/" },
-  { label: "Casino Bonuses", href: "/casino-bonuses/" },
-  { label: "Casino Licenses", href: "/casino-safety/casino-licenses-compared/" },
-  { label: "How We Review", href: "/how-we-review/" },
 ];
 
 export const footerNav: { title: string; links: NavLink[] }[] = [
   {
     title: "Reviews & Rankings",
     links: [
-      { label: "Live Casino Reviews", href: "/live-casino-reviews/" },
-      { label: "Best Live Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
+      { label: "Best Live Casinos", href: "/live-casino-reviews/" },
+      { label: "Best Slot Casinos", href: "/slots/best-slot-casinos/" },
+      { label: "Best Blackjack Casinos", href: "/live-blackjack/best-live-blackjack-casinos/" },
+      { label: "Best Casino Bonuses", href: "/casino-bonuses/" },
       { label: "Fast Withdrawal Casinos", href: "/payment-methods/fast-withdrawal-live-casinos/" },
-      { label: "Live Casino Bonuses", href: "/casino-bonuses/" },
-      { label: "Software Providers", href: "/providers/" },
     ],
   },
   {
     title: "Guides",
     links: [
-      { label: "Live Blackjack", href: "/live-blackjack/" },
-      { label: "Live Poker", href: "/live-poker/" },
-      { label: "Live Dealer Games", href: "/live-dealer-games/" },
-      { label: "Payment Methods", href: "/payment-methods/" },
-      { label: "Casino Safety", href: "/casino-safety/" },
+      { label: "Live Casino", href: "/live-dealer-games/" },
+      { label: "Blackjack", href: "/live-blackjack/" },
+      { label: "Poker", href: "/live-poker/" },
+      { label: "Slots", href: "/slots/" },
+      { label: "Payments", href: "/payment-methods/" },
     ],
   },
   {
-    title: "Countries",
+    title: "Bonuses & Safety",
     links: [
-      { label: "United Kingdom", href: "/countries/uk/" },
-      { label: "Canada", href: "/countries/canada/" },
-      { label: "Ireland", href: "/countries/ireland/" },
-      { label: "New Zealand", href: "/countries/new-zealand/" },
-      { label: "Australia", href: "/countries/australia/" },
+      { label: "Casino Bonuses", href: "/casino-bonuses/" },
+      { label: "Free Spins Bonuses", href: "/casino-bonuses/free-spins-bonuses/" },
+      { label: "Wagering Explained", href: "/casino-bonuses/wagering-requirements-explained/" },
+      { label: "Casino Safety", href: "/casino-safety/" },
+      { label: "Casino Licenses", href: "/casino-safety/casino-licenses-compared/" },
     ],
   },
   {

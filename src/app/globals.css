@@ -163,7 +163,18 @@ table.data thead th { background: linear-gradient(180deg, var(--navy-850), var(-
 table.data tbody tr:last-child td { border-bottom: none; }
 table.data tbody tr:hover { background: var(--violet-50); }
 table.data .rank-cell { font-weight: 800; color: var(--violet-600); font-size: 1.1rem; font-family: var(--font-head); }
+table.data.casino-table { min-width: 1080px; }
 .casino-cell { display: flex; align-items: center; gap: 12px; }
+.slots-only-tag { font-size: 0.68rem; font-weight: 700; color: var(--gold-600); background: var(--gold-soft); padding: 2px 7px; border-radius: 999px; display: inline-block; margin-top: 3px; }
+/* Bonus column — visually prominent */
+table.data th.bonus-col { background: linear-gradient(180deg, var(--violet-600), var(--violet-700)); }
+table.data td.bonus-col { background: var(--violet-50); border-left: 1px solid #e3dbf7; border-right: 1px solid #e3dbf7; }
+table.data tbody tr:hover td.bonus-col { background: #ece5ff; }
+.bonus-cell { display: flex; flex-direction: column; gap: 2px; min-width: 150px; }
+.bonus-amt { font-weight: 800; font-family: var(--font-head); color: var(--violet-700); font-size: 0.98rem; line-height: 1.15; }
+.bonus-fs { font-size: 0.78rem; font-weight: 700; color: var(--green-700); }
+.wager-x { font-weight: 700; color: var(--ink-800); }
+.wager-none { font-weight: 800; color: var(--green-700); background: var(--green-soft); padding: 2px 9px; border-radius: 999px; font-size: 0.78rem; }
 .logo-chip { width: 48px; height: 48px; border-radius: 12px; flex: none; display: grid; place-items: center; font-weight: 800; color: #fff; font-size: 1rem; background: linear-gradient(140deg, var(--violet-500), var(--violet-700)); box-shadow: 0 4px 10px rgba(91,33,182,0.28); }
 
 /* Weighted criteria bars */
@@ -357,6 +368,45 @@ table.data .rank-cell { font-weight: 800; color: var(--violet-600); font-size: 1
 .mini-list li { font-size: 0.82rem; padding-left: 18px; position: relative; margin-bottom: 5px; color: var(--ink-700); }
 .mini-pro li::before { content: "✓"; position: absolute; left: 0; color: var(--green-600); font-weight: 800; }
 .mini-con li::before { content: "✕"; position: absolute; left: 0; color: var(--red-500); font-weight: 800; }
+
+/* Review card bonus block */
+.review-card-bonus { background: linear-gradient(135deg, var(--violet-50), #fff); border: 1px solid #e3dbf7; border-radius: var(--radius-sm); padding: 12px 14px; display: flex; flex-direction: column; gap: 1px; }
+.rcb-label { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--violet-600); }
+.rcb-amount { font-family: var(--font-head); font-weight: 800; font-size: 1.08rem; color: var(--violet-700); }
+.rcb-wager { font-size: 0.76rem; color: var(--ink-500); }
+.review-card-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.bonus-card-note { font-size: 0.68rem; color: var(--ink-400); text-align: center; margin: 4px 0 0; }
+
+/* Bonus cards (homepage / bonuses page) */
+.bonus-card { display: flex; flex-direction: column; gap: 14px; position: relative; overflow: hidden; }
+.bonus-card-tag { position: absolute; top: 0; right: 0; background: linear-gradient(180deg, var(--gold-400), var(--gold-600)); color: #fff; font-size: 0.68rem; font-weight: 800; padding: 5px 14px; border-bottom-left-radius: 12px; letter-spacing: 0.02em; }
+.bonus-card-head { display: flex; align-items: center; gap: 12px; margin-top: 8px; }
+.bonus-card-head strong { font-family: var(--font-head); }
+.bonus-card-offer { background: linear-gradient(135deg, var(--violet-600), var(--navy-900)); border-radius: var(--radius-sm); padding: 16px; text-align: center; }
+.bco-amount { color: #fff; font-family: var(--font-head); font-weight: 800; font-size: 1.25rem; line-height: 1.2; display: block; }
+.bonus-card-terms { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 7px 16px; }
+.bonus-card-terms li { display: flex; justify-content: space-between; font-size: 0.82rem; border-bottom: 1px dashed var(--line); padding-bottom: 5px; }
+.bonus-card-terms span { color: var(--ink-400); }
+.bonus-card-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* Review page bonus box */
+.review-bonus-box { background: linear-gradient(135deg, var(--violet-50), #fff); border: 1.5px solid #ddd2f5; border-radius: var(--radius); padding: 20px 22px; margin: 8px 0 0; }
+.review-bonus-box .rbb-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+.rbb-label { display: block; font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; color: var(--violet-600); }
+.rbb-amount { display: block; font-family: var(--font-head); font-weight: 800; font-size: 1.55rem; color: var(--violet-700); line-height: 1.15; }
+.rbb-terms { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 18px; }
+@media (max-width: 560px) { .rbb-terms { grid-template-columns: 1fr 1fr; } }
+.rbb-terms li { display: flex; flex-direction: column; border-top: 1px solid #e3dbf7; padding-top: 7px; }
+.rbb-terms span { font-size: 0.72rem; color: var(--ink-400); }
+.rbb-terms strong { font-size: 0.95rem; color: var(--ink-900); }
+
+/* Bonus transparency warning */
+.bonus-warning { background: #fffaf0; border: 1px solid #f3ddad; border-radius: var(--radius); padding: 18px 20px; }
+.bonus-warning .bw-head { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; color: #7a5312; font-family: var(--font-head); }
+.bonus-warning ul { margin: 0 0 8px; padding-left: 20px; columns: 2; column-gap: 26px; }
+.bonus-warning li { font-size: 0.85rem; color: #6b5518; margin-bottom: 5px; break-inside: avoid; }
+.bonus-warning p { color: #7a5312; margin: 0; }
+@media (max-width: 620px) { .bonus-warning ul { columns: 1; } }
 
 /* ============================ FOOTER ============================ */
 .site-footer { background: linear-gradient(180deg, var(--navy-900), var(--navy-950)); color: #97a0b8; padding: 60px 0 30px; margin-top: 48px; }

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { CriteriaTable, AuthorBox, SectionHead } from "@/components/Bits";
+import { CriteriaTable, AuthorBox } from "@/components/Bits";
+import { generalWeighting } from "@/lib/methodology";
 
 export const metadata: Metadata = {
   title: "How We Review Live Casinos — Our Methodology",
@@ -10,15 +11,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/how-we-review/" },
 };
 
-const criteria = [
-  { name: "Live dealer game quality", weight: 25 },
-  { name: "Licensing & safety", weight: 20 },
-  { name: "Payments & withdrawals", weight: 15 },
-  { name: "Mobile experience", weight: 15 },
-  { name: "Bonus transparency", weight: 10 },
-  { name: "Customer support", weight: 10 },
-  { name: "Responsible gambling tools", weight: 5 },
-];
+const criteria = generalWeighting;
 
 export default function HowWeReviewPage() {
   return (
@@ -38,10 +31,18 @@ export default function HowWeReviewPage() {
             <p>We never rank a casino on the size of its bonus, and commercial partnerships never influence position. If a site fails our safety checks, it does not appear on the site at all.</p>
 
             <h2>Ranking criteria &amp; weightings</h2>
-            <p>Each casino receives a score out of 10 across seven weighted criteria. The overall rating is the weighted average.</p>
+            <p>Each casino receives a score out of 10 across seven weighted criteria. The overall rating is the weighted average. Note that <strong>casino bonus value &amp; transparency now carries the same 20% weight as licensing &amp; safety</strong> — a strong site with a misleading bonus is marked down accordingly.</p>
             <div style={{ margin: "18px 0 26px" }}><CriteriaTable rows={criteria} /></div>
 
-            <h2>How we test live casinos</h2>
+            <h3>Category-specific weighting</h3>
+            <p>Different pages use different weightings so each ranking reflects what matters for that category:</p>
+            <ul>
+              <li><strong>Live casino pages</strong> weight live casino quality highest (30%).</li>
+              <li><strong>Slot casino pages</strong> weight the slots library &amp; providers highest (30%).</li>
+              <li><strong>Bonus pages</strong> weight bonus value, wagering fairness and terms transparency highest (75% combined).</li>
+            </ul>
+
+            <h2>How we test casinos</h2>
             <ul>
               <li><strong>Game quality:</strong> we assess stream stability, dealer professionalism, table variety and the providers powering them.</li>
               <li><strong>Table range:</strong> we count blackjack, roulette, baccarat, poker and game-show tables, and note stake limits.</li>

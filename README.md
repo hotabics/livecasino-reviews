@@ -1,12 +1,20 @@
 # LiveCasino.Reviews
 
-Independent live dealer casino reviews, live blackjack & poker guides, payment
-comparisons and responsible-gambling resources — built as a fast, SEO-focused
-editorial platform.
+Independent casino reviews covering **live casino, blackjack, poker, slots and casino
+bonuses** — with a bonus-driven comparison table, payment comparisons and
+responsible-gambling resources. Built as a fast, SEO-focused editorial platform.
 
-**Live positioning:** _Independent live casino reviews, live blackjack guides, poker game
-explanations, payment comparisons, and safe gambling resources for players who want to
-compare live dealer sites before signing up._
+**Positioning:** _Live casino, blackjack, poker, slots and casino bonus reviews — with
+transparent rankings, payment comparisons and safe gambling guides._
+
+## Major sections
+
+Live casino reviews · Blackjack guides · Poker guides · **Online slots & slot casino
+reviews** · **Casino bonuses & free spins** · Payment methods · Casino safety · Responsible
+gambling. The main comparison table is bonus-led (welcome bonus, free spins and wagering are
+primary columns), and slots-only casinos are shown with a "No live casino — strong slots
+offer" label. Review scoring uses a general weighting where bonus value equals licensing at
+20%, with heavier live/slots/bonus weightings on the respective category pages.
 
 ---
 

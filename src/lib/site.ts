@@ -2,18 +2,28 @@ export const site = {
   name: "LiveCasino.Reviews",
   domain: "livecasino.reviews",
   url: "https://livecasino.reviews",
-  tagline: "Independent Live Casino Reviews & Guides",
+  tagline: "Casino, Slots & Bonus Reviews",
   description:
-    "Independent live casino reviews, live blackjack guides, poker game explanations, payment comparisons, and safe gambling resources for players who want to compare live dealer sites before signing up.",
+    "Live casino, blackjack, poker, slots and casino bonus reviews — with transparent rankings, payment comparisons and safe gambling guides.",
   positioning:
-    "LiveCasino.Reviews is a transparent review and guide platform for live dealer casino players, covering live blackjack, live poker, live games, payment speed, casino safety, software providers, and responsible gambling.",
+    "Live casino, blackjack, poker, slots and casino bonus reviews — with transparent rankings, payment comparisons and safe gambling guides.",
   updated: "July 2026",
   email: "editorial@livecasino.reviews",
   rgMessage:
     "Gambling involves risk. Only gamble with money you can afford to lose. If gambling stops being fun, take a break and seek help. 18+ (21+ in some jurisdictions). Play responsibly.",
   affiliateDisclosure:
-    "We may earn a commission from partner links, but our rankings are based on live game quality, licensing, withdrawal speed, mobile experience, support, responsible gambling tools, and bonus transparency.",
+    "We may earn a commission from partner links, but our rankings are based on bonus value and transparency, licensing, live casino and slots quality, withdrawal speed, mobile experience, support, and responsible gambling tools.",
 } as const;
+
+// Reusable, transparent bonus wording shown on every bonus-related page.
+export const bonusTransparency: string[] = [
+  "Compare bonus terms carefully before you claim",
+  "Check the wagering requirement before claiming",
+  "Bonuses may not apply to all games",
+  "Some live casino games may be excluded from bonuses",
+  "Only gamble with money you can afford to lose",
+  "Use deposit limits and self-exclusion tools if needed",
+];
 
 export const author = {
   name: "LiveCasino.Reviews Editorial Team",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Casino } from "@/data/casinos";
+import { bonusHeadline } from "@/data/casinos";
 import { LogoChip, RatingBadge, Stars } from "./Bits";
 
 export default function ReviewCard({ c }: { c: Casino }) {
@@ -17,14 +18,21 @@ export default function ReviewCard({ c }: { c: Casino }) {
         <RatingBadge value={c.rating} />
       </div>
 
+      {/* Bonus highlight */}
+      <div className="review-card-bonus">
+        <span className="rcb-label">Welcome Bonus</span>
+        <span className="rcb-amount">{bonusHeadline(c)}</span>
+        <span className="rcb-wager">Wagering: {c.wagering === "None" ? "None" : c.wagering} · Min {c.minDeposit}</span>
+      </div>
+
       <ul className="review-stats">
         <li><span>License</span><strong>{c.licenseAuthority.split(" ")[0]}</strong></li>
-        <li><span>Live games</span><strong>{c.liveGames}+</strong></li>
-        <li><span>Blackjack tables</span><strong>{c.blackjackTables}</strong></li>
-        <li><span>Poker games</span><strong>{c.pokerGames}</strong></li>
         <li><span>Withdrawal</span><strong>{c.withdrawalSpeed}</strong></li>
-        <li><span>Min deposit</span><strong>{c.minDeposit}</strong></li>
+        <li><span>Live games</span><strong>{c.hasLiveCasino ? `${c.liveGames}+` : "—"}</strong></li>
+        <li><span>Slot games</span><strong>{c.slotGames.toLocaleString()}+</strong></li>
       </ul>
+
+      {c.slotsOnlyLabel && <div className="slots-only-tag" style={{ alignSelf: "flex-start" }}>{c.slotsOnlyLabel}</div>}
 
       <div className="review-card-pc">
         <div>
@@ -41,7 +49,11 @@ export default function ReviewCard({ c }: { c: Casino }) {
         </div>
       </div>
 
-      <Link href={`/reviews/${c.slug}/`} className="btn btn-gold btn-block">Read Full Review</Link>
+      <div className="review-card-cta">
+        <Link href={`/reviews/${c.slug}/`} className="btn btn-outline btn-block">Read Review</Link>
+        <a href={`/reviews/${c.slug}/`} rel="sponsored nofollow" className="btn btn-cta btn-block">Claim Bonus</a>
+      </div>
+      <p className="bonus-card-note">18+ · T&amp;Cs apply · Wagering applies · Play responsibly</p>
     </div>
   );
 }

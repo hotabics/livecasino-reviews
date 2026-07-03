@@ -263,6 +263,78 @@ function bonusBody(a: Article): Block[] {
   ];
 }
 
+function slotsListBody(a: Article): Block[] {
+  return [
+    { t: "takeaways", items: [
+      "Ranked on slots library size, providers, bonus value and payout speed.",
+      "Only licensed operators appear in this list.",
+      "A big bonus only counts if you can realistically clear it on slots.",
+    ]},
+    { t: "h2", text: "Quick summary" },
+    { t: "p", text: `${a.intro} Use the comparison table above to weigh each site, then read the full review before you deposit. Some sites here are slots-only, others also run a live casino — the table shows both.` },
+    { t: "h2", text: `How we chose the ${a.keyword}` },
+    { t: "ul", items: [
+      "Size and quality of the slots library, and the studios behind it (Pragmatic Play, Play'n GO, Nolimit City and more).",
+      "Bonus value and, crucially, how much of it applies to slots.",
+      "Wagering requirements you can realistically meet.",
+      "Verified withdrawal speed — we time payouts.",
+      "A valid licence from a respected regulator.",
+      "Mobile slots performance.",
+    ]},
+    { t: "h2", text: "Check the bonus terms first" },
+    { t: "p", text: "Slots usually contribute 100% toward wagering, which makes slots bonuses better value than live-casino bonuses — but always confirm the wagering multiplier, maximum bet, eligible slots and max cashout before you opt in. Our bonus terms guide explains exactly what to read." },
+    { t: "quote", text: RG },
+  ];
+}
+
+function slotsGuideBody(a: Article): Block[] {
+  return [
+    { t: "takeaways", items: [
+      `${a.title.replace(/ Explained| This Month/g, "")} — explained clearly for players.`,
+      "RTP and volatility matter more than any 'system' or hunch.",
+      "No strategy changes a slot's built-in house edge.",
+    ]},
+    { t: "h2", text: "The basics" },
+    { t: "p", text: `${a.intro}` },
+    { t: "h2", text: "What actually matters" },
+    { t: "ul", items: [
+      "RTP (return to player): higher is better long-term value — look for 96%+.",
+      "Volatility: how often and how big a slot pays. Match it to your bankroll.",
+      "Features: free spins, multipliers, Megaways and bonus rounds add variance.",
+      "Max win and bet range: check these fit your budget before spinning.",
+    ]},
+    { t: "h2", text: "How to play sensibly" },
+    { t: "ol", items: [
+      "Set a session budget and a loss limit before you start.",
+      "Pick a bet size your balance can sustain for a full session.",
+      "Understand the slot's RTP and volatility before playing for real.",
+      "Take breaks — slots are fast and designed to keep you spinning.",
+    ]},
+    { t: "h3", text: "What no slot guide can promise" },
+    { t: "p", text: "Slots are games of chance with a fixed house edge. No pattern, time of day, or staking system changes the odds of the next spin. Anyone promising guaranteed wins is misleading you." },
+    { t: "quote", text: RG },
+  ];
+}
+
+function slotsProviderBody(a: Article): Block[] {
+  return [
+    { t: "takeaways", items: [
+      `${a.title.replace(" Review", "")} — range, RTP and standout titles reviewed.`,
+      "We look at game quality, RTP transparency and volatility spread.",
+      "Provider quality matters, but the casino hosting the games matters too.",
+    ]},
+    { t: "h2", text: "Who they are" },
+    { t: "p", text: `${a.intro}` },
+    { t: "h2", text: "Game range & standout titles" },
+    { t: "p", text: "We assess the breadth of the catalogue, the balance of low- and high-volatility games, and the quality of the flagship titles that players actually seek out. A strong studio offers something for cautious and adventurous players alike." },
+    { t: "h2", text: "RTP & fairness" },
+    { t: "p", text: "Reputable studios publish RTP figures and have their games independently tested and certified. Note that some casinos can configure lower RTP versions of the same slot — always check the RTP shown in the game's info panel at your casino." },
+    { t: "h2", text: "Where to play" },
+    { t: "p", text: "The best experience comes from pairing a great studio with a well-licensed casino. See our best slot casinos ranking for licensed sites that carry this provider's games." },
+    { t: "quote", text: RG },
+  ];
+}
+
 export function buildArticle(a: Article): { blocks: Block[]; faqs: Faq[] } {
   let blocks: Block[];
   switch (a.kind) {
@@ -273,6 +345,9 @@ export function buildArticle(a: Article): { blocks: Block[]; faqs: Faq[] } {
     case "payment": blocks = paymentBody(a); break;
     case "safety": blocks = safetyBody(a); break;
     case "bonus": blocks = bonusBody(a); break;
+    case "slots-list": blocks = slotsListBody(a); break;
+    case "slots-guide": blocks = slotsGuideBody(a); break;
+    case "slots-provider": blocks = slotsProviderBody(a); break;
     default: blocks = guideBody(a);
   }
 
@@ -292,6 +367,21 @@ export function buildArticle(a: Article): { blocks: Block[]; faqs: Faq[] } {
     bonus: [
       { q: "Why do live casino bonuses have high wagering?", a: "Because live games have a low, predictable house edge, casinos limit how much they contribute to wagering to manage risk. That's why live players benefit most from low- or no-wagering offers." },
       { q: "Can I withdraw a bonus immediately?", a: "Only no-wagering bonuses let you withdraw winnings straight away. Standard bonuses require you to meet the wagering requirement first." },
+      { q: "Are these bonuses risk-free?", a: "No bonus is risk-free. A bonus can improve value, but you can still lose. Compare the terms carefully, check the wagering requirement, and only gamble with money you can afford to lose." },
+    ],
+    "slots-list": [
+      { q: "How are the best slot casinos ranked?", a: "By slots library size and quality, the studios carried, bonus value and how much of it applies to slots, verified withdrawal speed, licensing and mobile performance. Commercial deals never change the order." },
+      { q: "Do slots bonuses have better terms than live casino bonuses?", a: "Often yes — slots usually contribute 100% toward wagering, versus around 10% for live games. Still, always check the specific wagering multiplier, eligible slots and max cashout before claiming." },
+      { q: "Are online slots fair?", a: "At licensed casinos, slots use certified random number generators tested by independent labs. The RTP is disclosed and is how the game earns over time — results are not manipulated." },
+    ],
+    "slots-guide": [
+      { q: "What is a good slot RTP?", a: "96% or higher is generally considered good. RTP is a long-run average, so short sessions still vary widely, but higher RTP means better value over time." },
+      { q: "Does high volatility mean better payouts?", a: "Not more overall — high volatility means rarer but larger wins, and longer losing streaks in between. Low volatility pays smaller amounts more often. Choose based on your bankroll and patience." },
+      { q: "Can I improve my odds on slots?", a: "You can choose higher-RTP games and manage your bankroll, but you cannot change the odds of any individual spin. Beware anyone promising guaranteed slot wins or 'systems'." },
+    ],
+    "slots-provider": [
+      { q: "Is this provider's RTP always the same?", a: "Not necessarily. Studios often ship multiple RTP versions of a slot, and casinos choose which to run. Always check the RTP in the game's info panel at your specific casino." },
+      { q: "Where can I play these slots?", a: "At licensed casinos that carry this studio. See our best slot casinos ranking for safe, licensed sites offering this provider's games." },
     ],
   };
 
@@ -335,10 +425,18 @@ export function relatedLinks(a: Article): { label: string; href: string }[] {
       { label: "How We Review", href: "/how-we-review/" },
     ],
     "/casino-bonuses/": [
-      { label: "Best Live Casino Bonuses", href: "/casino-bonuses/best-live-casino-bonuses/" },
+      { label: "Best Casino Bonuses", href: "/casino-bonuses/best-live-casino-bonuses/" },
+      { label: "Best Free Spins Bonuses", href: "/casino-bonuses/free-spins-bonuses/" },
+      { label: "Best Slots Bonuses", href: "/casino-bonuses/best-slots-bonuses/" },
       { label: "Wagering Requirements Explained", href: "/casino-bonuses/wagering-requirements-explained/" },
       { label: "How to Avoid Bonus Traps", href: "/casino-safety/casino-bonus-traps/" },
-      { label: "Casino Bonus Terms", href: "/casino-safety/casino-bonus-terms-explained/" },
+    ],
+    "/slots/": [
+      { label: "Best Slot Casinos", href: "/slots/best-slot-casinos/" },
+      { label: "Best Free Spins Casinos", href: "/slots/best-free-spins-casino-bonuses/" },
+      { label: "High RTP Slots", href: "/slots/high-rtp-slots/" },
+      { label: "Slot Volatility Explained", href: "/slots/slot-volatility/" },
+      { label: "Best Slots Bonuses", href: "/casino-bonuses/best-slots-bonuses/" },
     ],
     "/providers/": [
       { label: "Best Live Casino Providers", href: "/providers/best-live-casino-providers/" },
