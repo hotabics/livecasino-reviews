@@ -259,6 +259,17 @@ export const countries: Country[] = [
 
 export const getCountry = (code: string) => countries.find((c) => c.code === code);
 
+// Map an ISO-3166 alpha-2 country code (from geo-IP) to one of our market codes.
+const isoToMarket: Record<string, string> = {
+  GB: "uk", UK: "uk",
+  SE: "sweden", DK: "denmark", DE: "germany", FI: "finland",
+  NO: "norway", AT: "austria", PL: "poland",
+  AU: "australia", NZ: "new-zealand", CA: "canada",
+};
+export function marketForCountryCode(iso: string): string {
+  return isoToMarket[(iso || "").toUpperCase()] ?? "international";
+}
+
 export const statusLabel: Record<MarketStatus, string> = {
   open: "Open / licensed market",
   restricted: "Restricted / monopoly market",

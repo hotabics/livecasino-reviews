@@ -438,6 +438,51 @@ table.data tbody tr:hover td.bonus-col { background: #ece5ff; }
 .cp-soon { background: var(--gold-soft); color: #7a5312; border-radius: var(--radius-sm); padding: 10px 14px; font-weight: 600; font-size: 0.9rem; }
 .cp-rg { font-size: 0.86rem; color: var(--ink-600, var(--ink-700)); margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); }
 
+.geo-label-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
+.geo-detected { font-size: 0.84rem; color: var(--green-700); background: var(--green-soft); padding: 4px 12px; border-radius: 999px; font-weight: 600; }
+.geo-detected strong { color: var(--green-700); }
+
+/* Sort / filter toolbar */
+.op-toolbar { display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; justify-content: space-between; padding: 12px 4px; }
+.opt-sort { display: inline-flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; color: var(--ink-500); }
+.opt-sort select, .calc-field select, .calc-field input { font-family: var(--font); font-size: 0.88rem; padding: 8px 12px; border-radius: 9px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-900); }
+.opt-filters { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.filter-toggle { font-family: var(--font-head); font-size: 0.8rem; font-weight: 600; padding: 7px 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-700); cursor: pointer; transition: all .14s ease; }
+.filter-toggle:hover { border-color: var(--violet-400); }
+.filter-toggle.on { background: var(--violet-soft); color: var(--violet-700); border-color: transparent; }
+.opt-count { font-size: 0.8rem; color: var(--ink-400); font-weight: 600; }
+
+/* Compare */
+.cmp-check { display: grid; place-items: center; cursor: pointer; }
+.cmp-check input { width: 17px; height: 17px; accent-color: var(--violet-600); cursor: pointer; }
+tr.row-compared td { background: var(--violet-50) !important; }
+.compare-bar { position: sticky; bottom: 14px; z-index: 40; margin-top: 18px; }
+.compare-bar-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; background: var(--navy-900); color: #fff; border-radius: 999px; padding: 10px 16px; box-shadow: var(--shadow-lg); }
+.cb-count { font-family: var(--font-head); font-weight: 800; font-size: 0.85rem; color: var(--gold-400); }
+.cb-chips { display: inline-flex; flex-wrap: wrap; gap: 7px; flex: 1; }
+.cb-chip { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,0.1); border-radius: 999px; padding: 4px 6px 4px 11px; font-size: 0.8rem; font-weight: 600; }
+.cb-chip button { background: none; border: none; color: #cdd5ea; cursor: pointer; font-size: 1rem; line-height: 1; padding: 0 2px; }
+.cb-chip button:hover { color: #fff; }
+.cb-actions { display: inline-flex; gap: 8px; }
+.compare-panel { border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow-md); padding: 18px 20px; margin: 18px 0; }
+.compare-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.compare-panel td:first-child { font-weight: 600; color: var(--ink-500); }
+
+/* Wagering calculator */
+.calc { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 24px; }
+.calc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 760px) { .calc-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 460px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-field { display: flex; flex-direction: column; gap: 6px; }
+.calc-field span { font-size: 0.78rem; font-weight: 700; color: var(--ink-500); text-transform: uppercase; letter-spacing: 0.04em; }
+.calc-result { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 22px 0 6px; }
+@media (max-width: 460px) { .calc-result { grid-template-columns: 1fr; } }
+.calc-out { background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px; }
+.calc-out-label { display: block; font-size: 0.78rem; font-weight: 700; color: var(--ink-500); text-transform: uppercase; letter-spacing: 0.04em; }
+.calc-out-num { display: block; font-family: var(--font-head); font-weight: 800; font-size: 1.9rem; color: var(--ink-900); font-variant-numeric: tabular-nums; margin-top: 4px; }
+.calc-out-num.accent { color: var(--violet-600); }
+.calc-note { color: var(--ink-500); margin: 12px 0 0; }
+
 .offer-unverified { font-size: 0.8rem; font-weight: 700; color: var(--ink-400); background: #f0f1f6; padding: 3px 9px; border-radius: 999px; }
 .op-verified { font-size: 0.7rem; font-weight: 700; color: var(--green-700); }
 .op-cta { display: grid; gap: 6px; }

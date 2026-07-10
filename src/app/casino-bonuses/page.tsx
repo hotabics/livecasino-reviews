@@ -4,6 +4,7 @@ import PageHero from "@/components/PageHero";
 import BonusCard from "@/components/BonusCard";
 import BonusTable from "@/components/BonusTable";
 import BonusWarning from "@/components/BonusWarning";
+import WageringCalculator from "@/components/WageringCalculator";
 import FaqSection from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { ArticleCard, CategoryCard } from "@/components/Cards";
@@ -77,6 +78,12 @@ export default function CasinoBonusesPage() {
         <div className="grid grid-3">
           {bonusCategories.map((c) => <CategoryCard key={c.title} {...c} />)}
         </div>
+      </section>
+
+      {/* Wagering calculator */}
+      <section className="section container">
+        <SectionHead eyebrow="Tool" title="Wagering Requirement Calculator" intro="See what a bonus really costs to clear. Enter the bonus, the wagering multiplier and the games you'll play — game weighting changes everything." />
+        <WageringCalculator />
       </section>
 
       {/* Methodology for bonus pages */}
