@@ -297,9 +297,9 @@ export const casinos: Casino[] = [
   },
   {
     slug: "grandstand-poker",
-    name: "Grandstand Poker & Live",
-    logoText: "GP",
-    bestFor: "Best for Live Poker",
+    name: "Grandstand Table Casino",
+    logoText: "GT",
+    bestFor: "Best for Table Games",
     rating: 8.8,
     hasLiveCasino: true,
     liveGames: 240,
@@ -386,7 +386,7 @@ export const bestForCategories = [
   "Best Slots Casino",
   "Best Free Spins Bonus",
   "Best Mobile Casino",
-  "Best for Live Poker",
+  "Best for Table Games",
   "Best Low Deposit Bonus",
 ];
 

@@ -1,6 +1,7 @@
 import { articles } from "@/data/articles";
 import { casinos } from "@/data/casinos";
 import { countries } from "@/data/countries";
+import { operators } from "@/data/operators";
 
 export type RouteGroup = { title: string; links: { label: string; href: string }[] };
 
@@ -36,7 +37,8 @@ export function routeGroups(): RouteGroup[] {
 
   return [
     { title: "Main Pages", links: staticPages },
-    { title: "Casino Reviews", links: casinos.map((c) => ({ label: `${c.name} Review`, href: `/reviews/${c.slug}/` })) },
+    { title: "Operator Reviews", links: operators.map((o) => ({ label: `${o.name} Review`, href: `/casino/${o.id}/` })) },
+    { title: "Demo Casino Reviews", links: casinos.map((c) => ({ label: `${c.name} Review`, href: `/reviews/${c.slug}/` })) },
     { title: "Live Blackjack Guides", links: bySection("/live-blackjack/") },
     { title: "Live Poker Guides", links: bySection("/live-poker/") },
     { title: "Live Dealer Game Guides", links: bySection("/live-dealer-games/") },
@@ -56,6 +58,7 @@ export function allUrls(): string[] {
   const urls = new Set<string>();
   staticPages.forEach((p) => urls.add(p.href));
   trustPages.forEach((p) => urls.add(p.href));
+  operators.forEach((o) => urls.add(`/casino/${o.id}/`));
   casinos.forEach((c) => urls.add(`/reviews/${c.slug}/`));
   countries.forEach((c) => urls.add(`/countries/${c.slug}/`));
   articles.forEach((a) => urls.add(a.slug));

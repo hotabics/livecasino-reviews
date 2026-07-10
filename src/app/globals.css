@@ -389,6 +389,33 @@ table.data tbody tr:hover td.bonus-col { background: #ece5ff; }
 .bonus-card-terms span { color: var(--ink-400); }
 .bonus-card-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
+/* Geo country selector */
+.geo-select { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); }
+.geo-label { display: block; font-family: var(--font-head); font-weight: 800; font-size: 0.95rem; margin-bottom: 12px; }
+.geo-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.geo-chip { font-family: var(--font-head); font-size: 0.84rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-700); cursor: pointer; transition: all .14s ease; }
+.geo-chip:hover { border-color: var(--violet-400); color: var(--violet-700); }
+.geo-chip.active { background: linear-gradient(180deg, var(--violet-500), var(--violet-600)); color: #fff; border-color: transparent; box-shadow: var(--shadow-violet); }
+
+/* Compliance panel */
+.compliance-panel { border-radius: var(--radius); padding: 22px 24px; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow-sm); border-left: 5px solid var(--violet-500); }
+.compliance-panel.tone-green { border-left-color: var(--green-500); }
+.compliance-panel.tone-gold { border-left-color: var(--gold-500); }
+.compliance-panel.tone-red { border-left-color: var(--red-500); }
+.compliance-panel.tone-navy { border-left-color: var(--navy-700); }
+.cp-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.cp-flag { font-size: 2rem; line-height: 1; }
+.cp-country { font-family: var(--font-head); font-weight: 800; font-size: 1.2rem; }
+.cp-note { color: var(--ink-700); margin: 0 0 8px; }
+.cp-reg { color: var(--ink-500); margin: 0 0 10px; }
+.cp-reg a, .cp-rg a { color: var(--violet-600); font-weight: 600; text-decoration: underline; }
+.cp-soon { background: var(--gold-soft); color: #7a5312; border-radius: var(--radius-sm); padding: 10px 14px; font-weight: 600; font-size: 0.9rem; }
+.cp-rg { font-size: 0.86rem; color: var(--ink-600, var(--ink-700)); margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); }
+
+.offer-unverified { font-size: 0.8rem; font-weight: 700; color: var(--ink-400); background: #f0f1f6; padding: 3px 9px; border-radius: 999px; }
+.op-verified { font-size: 0.7rem; font-weight: 700; color: var(--green-700); }
+.op-cta { display: grid; gap: 6px; }
+
 /* Review page bonus box */
 .review-bonus-box { background: linear-gradient(135deg, var(--violet-50), #fff); border: 1.5px solid #ddd2f5; border-radius: var(--radius); padding: 20px 22px; margin: 8px 0 0; }
 .review-bonus-box .rbb-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
