@@ -5,6 +5,7 @@ import Link from "next/link";
 import { countries, getCountry, statusLabel, statusTone, type Country } from "@/data/geo";
 import { operatorsForMarket, formatMoney, type Operator } from "@/data/operators";
 import { LogoChip } from "./Bits";
+import { PayIcons } from "./PayIcon";
 
 const regShort: Record<string, string> = {
   uk: "UKGC", sweden: "SGA", denmark: "DGA", canada: "iGO", germany: "GGL", international: "MGA",
@@ -158,6 +159,7 @@ export default function GeoCasinoReviews() {
                         <LogoChip text={op.logoText} />
                         <div>
                           <strong>{op.name}</strong>
+                          <div style={{ margin: "3px 0 2px" }}><PayIcons methods={op.payments} max={4} /></div>
                           <div className="small text-muted">Licence: verify no. on register</div>
                         </div>
                       </div>

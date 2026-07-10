@@ -5,7 +5,7 @@ import GeoCasinoReviews from "@/components/GeoCasinoReviews";
 import FaqSection from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { CategoryCard } from "@/components/Cards";
-import { SectionHead, CriteriaTable, Checklist, AuthorBox } from "@/components/Bits";
+import { SectionHead, CriteriaTable, Checklist, AuthorBox, Byline } from "@/components/Bits";
 import { generalWeighting } from "@/lib/methodology";
 import { faqSchema } from "@/lib/schema";
 import { site } from "@/lib/site";
@@ -84,6 +84,7 @@ export default function CasinoReviewsPage() {
             <div className="stat"><span className="n">7</span><span className="l">Ranking criteria</span></div>
             <div className="stat"><span className="n">{site.updated}</span><span className="l">Last updated</span></div>
           </div>
+          <div style={{ marginTop: 18 }}><Byline date="2026-07-10" authorId="bonus-desk" /></div>
         </div>
       </section>
 

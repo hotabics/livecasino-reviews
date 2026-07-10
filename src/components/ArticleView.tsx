@@ -9,9 +9,10 @@ import FaqSection from "./Faq";
 import CasinoTable from "./CasinoTable";
 import BonusWarning from "./BonusWarning";
 import JsonLd from "./JsonLd";
-import { AffiliateNotice, RgNotice, AuthorBox, formatDate } from "./Bits";
+import { AffiliateNotice, RgNotice, AuthorBox, Byline } from "./Bits";
 import { articleSchema, faqSchema } from "@/lib/schema";
 import { author, site } from "@/lib/site";
+import { authorForKey } from "@/data/authors";
 
 // Map list slugs to a casino filter tag so the embedded table is relevant
 const listTag: Record<string, string> = {
@@ -75,10 +76,8 @@ export default function ArticleView({ slug }: { slug: string }) {
         <span className="badge badge-navy" style={{ marginBottom: 12 }}>{a.category}</span>
         <h1>{a.title}</h1>
         <p className="lede text-muted" style={{ fontSize: "1.12rem", maxWidth: 760 }}>{a.intro}</p>
-        <div className="flex items-center gap wrap small text-muted" style={{ marginTop: 8 }}>
-          <span>By {author.name}</span>
-          <span>·</span>
-          <span>Updated {formatDate(a.date)}</span>
+        <div style={{ marginTop: 10 }}>
+          <Byline date={a.date} authorId={authorForKey(a.slug).id} />
         </div>
 
         <div className="article-layout" style={{ marginTop: 26 }}>
@@ -100,7 +99,7 @@ export default function ArticleView({ slug }: { slug: string }) {
             <FaqSection faqs={faqs} />
 
             <hr className="hr" />
-            <AuthorBox date={a.date} />
+            <AuthorBox date={a.date} authorId={authorForKey(a.slug).id} />
           </div>
 
           <aside className="sidebar">

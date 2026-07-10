@@ -4,8 +4,10 @@ import { operators, getOperator } from "@/data/operators";
 import { getCountry } from "@/data/geo";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
-import { LogoChip, AuthorBox, RgNotice } from "@/components/Bits";
+import { LogoChip, AuthorBox, Byline, RgNotice } from "@/components/Bits";
+import { PayIcons } from "@/components/PayIcon";
 import BonusWarning from "@/components/BonusWarning";
+import { authorForKey } from "@/data/authors";
 import { breadcrumbSchema } from "@/lib/schema";
 
 export const dynamicParams = false;
@@ -46,6 +48,7 @@ export default async function OperatorPage({ params }: { params: Promise<{ slug:
             <div className="small text-muted" style={{ marginTop: 4 }}>Best for: {o.bestFor}</div>
           </div>
         </div>
+        <Byline date="2026-07-10" authorId={authorForKey(o.id).id} />
 
         <div className="article-layout">
           <div className="prose" style={{ maxWidth: "none" }}>
@@ -85,6 +88,7 @@ export default async function OperatorPage({ params }: { params: Promise<{ slug:
             <p className="small text-muted">Figures are indicative and may change — confirm on {o.name}&apos;s official site.</p>
 
             <h2>Payments &amp; withdrawals</h2>
+            <div style={{ margin: "0 0 12px" }}><PayIcons methods={o.payments} max={8} /></div>
             <p>Payment methods: {o.payments.join(", ")}. Indicative withdrawal speed: {o.withdrawalSpeed}. Minimum
               deposits vary by market and currency.</p>
 
@@ -100,7 +104,7 @@ export default async function OperatorPage({ params }: { params: Promise<{ slug:
             )}
 
             <hr className="hr" />
-            <AuthorBox date="2026-07-10" />
+            <AuthorBox date="2026-07-10" authorId={authorForKey(o.id).id} />
           </div>
 
           <aside className="sidebar">

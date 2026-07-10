@@ -29,12 +29,6 @@ const quickTiles = [
   { ic: "🃏", title: "Live Casino", sub: "Blackjack, poker & more", go: "Learn", href: "/live-dealer-games/" },
 ];
 
-const trustChips = [
-  { ic: "✓", label: "Licence verified" },
-  { ic: "★", label: "Independently rated" },
-  { ic: "⚡", label: "Payouts timed" },
-  { ic: "18", label: "18+ · Play responsibly" },
-];
 
 const criteria = generalWeighting;
 
@@ -146,18 +140,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* TRUST STRIP */}
-      <div className="trust-strip">
-        <div className="container trust-strip-inner">
-          {trustChips.map((c, i) => (
-            <span className="trust-chip" key={c.label}>
-              <span className="tc-ic">{c.ic}</span>{c.label}
-              {i < trustChips.length - 1 && <span className="sep" aria-hidden>·</span>}
-            </span>
-          ))}
-        </div>
-      </div>
 
       {/* TOP CASINOS */}
       <section className="section container">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { author } from "@/lib/site";
+import { getAuthor, reviewerFor } from "@/data/authors";
 
 export function RatingBadge({ value, sm = false }: { value: number; sm?: boolean }) {
   return (
@@ -73,15 +73,36 @@ export function RgNotice() {
   );
 }
 
-export function AuthorBox({ date }: { date?: string }) {
+export function AuthorBox({ date, authorId }: { date?: string; authorId?: string }) {
+  const a = getAuthor(authorId ?? "editorial");
+  const reviewer = reviewerFor(a);
   return (
     <div className="author-box">
-      <div className="author-avatar" aria-hidden>LC</div>
+      <div className="author-avatar" aria-hidden>{a.initials}</div>
       <div>
-        <div className="a-name">{author.name}</div>
-        <div className="a-role">{author.role}{date ? ` · Last updated ${formatDate(date)}` : ""}</div>
-        <p className="a-bio">{author.bio}</p>
+        <div className="a-name">{a.name}</div>
+        <div className="a-role">{a.role}{date ? ` · Last updated ${formatDate(date)}` : ""}</div>
+        <p className="a-bio">{a.bio}</p>
+        <div className="a-expertise">
+          {a.expertise.map((e) => <span key={e} className="badge badge-navy">{e}</span>)}
+        </div>
+        <div className="a-reviewed">Fact-checked &amp; reviewed by <strong>{reviewer.name}</strong> ({reviewer.role})</div>
       </div>
+    </div>
+  );
+}
+
+export function Byline({ date, authorId }: { date?: string; authorId?: string }) {
+  const a = getAuthor(authorId ?? "editorial");
+  const reviewer = reviewerFor(a);
+  return (
+    <div className="byline">
+      <span className="byline-avatar" aria-hidden>{a.initials}</span>
+      <span>
+        By <strong>{a.name}</strong>
+        <span className="byline-sep"> · </span>Reviewed by <strong>{reviewer.name}</strong>
+        {date && <><span className="byline-sep"> · </span>Updated {formatDate(date)}</>}
+      </span>
     </div>
   );
 }

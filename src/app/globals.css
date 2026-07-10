@@ -389,6 +389,32 @@ table.data tbody tr:hover td.bonus-col { background: #ece5ff; }
 .bonus-card-terms span { color: var(--ink-400); }
 .bonus-card-cta { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
+/* Trust bar (E-E-A-T / verification signals) */
+.trust-bar { background: linear-gradient(180deg, var(--navy-900), var(--navy-950)); color: #cdd5ea; border-bottom: 1px solid var(--navy-line); }
+.trust-bar-inner { display: flex; flex-wrap: wrap; gap: 14px 26px; align-items: center; justify-content: center; padding: 14px 22px; }
+.tb-item { display: inline-flex; align-items: center; gap: 9px; }
+.tb-ic { width: 26px; height: 26px; border-radius: 8px; background: rgba(255,255,255,0.08); color: var(--gold-400); display: grid; place-items: center; font-size: 0.72rem; font-weight: 800; flex: none; }
+.tb-text { display: flex; flex-direction: column; line-height: 1.2; }
+.tb-text strong { color: #fff; font-family: var(--font-head); font-size: 0.9rem; }
+.tb-text span { font-size: 0.72rem; color: #97a0b8; }
+.tb-rg .tb-ic { color: var(--green-400); }
+
+/* Byline (compact E-E-A-T line) */
+.byline { display: inline-flex; align-items: center; gap: 10px; font-size: 0.86rem; color: var(--ink-500); }
+.byline-avatar { width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(140deg, var(--violet-500), var(--violet-700)); color: #fff; display: grid; place-items: center; font-family: var(--font-head); font-weight: 800; font-size: 0.72rem; flex: none; }
+.byline strong { color: var(--ink-900); font-weight: 700; }
+.byline-sep { opacity: 0.5; }
+
+/* Author box additions */
+.a-expertise { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.a-reviewed { margin-top: 10px; font-size: 0.82rem; color: var(--ink-500); padding-top: 10px; border-top: 1px solid var(--line); }
+.a-reviewed strong { color: var(--ink-800); }
+
+/* Payment icons */
+.pay-icons { display: inline-flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.pay-icon { display: inline-grid; place-items: center; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-500); flex: none; }
+.pay-more { font-size: 0.72rem; font-weight: 700; color: var(--ink-400); }
+
 /* Geo country selector */
 .geo-select { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); }
 .geo-label { display: block; font-family: var(--font-head); font-weight: 800; font-size: 0.95rem; margin-bottom: 12px; }
