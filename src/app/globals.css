@@ -415,6 +415,46 @@ table.data tbody tr:hover td.bonus-col { background: #ece5ff; }
 .pay-icon { display: inline-grid; place-items: center; border-radius: 6px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink-500); flex: none; }
 .pay-more { font-size: 0.72rem; font-weight: 700; color: var(--ink-400); }
 
+/* Score widget (radial + criteria bars) */
+.score-widget { display: grid; grid-template-columns: 200px 1fr; gap: 28px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); }
+@media (max-width: 620px) { .score-widget { grid-template-columns: 1fr; justify-items: center; } }
+.sw-left { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.sw-donut { width: 150px; height: 150px; border-radius: 50%; display: grid; place-items: center;
+  background: conic-gradient(var(--violet-600) calc(var(--pct) * 1%), #eceaf5 0); }
+.sw-donut-inner { width: 112px; height: 112px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; box-shadow: inset 0 0 0 1px var(--line); }
+.sw-num { font-family: var(--font-head); font-weight: 800; font-size: 2.1rem; color: var(--ink-900); line-height: 1; font-variant-numeric: tabular-nums; }
+.sw-out { font-size: 0.72rem; color: var(--ink-400); font-weight: 700; }
+.sw-label { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-400); }
+.sw-bars { display: grid; gap: 9px; width: 100%; }
+.sw-bar-row { display: grid; grid-template-columns: 1fr 130px 34px; gap: 12px; align-items: center; }
+@media (max-width: 620px) { .sw-bar-row { grid-template-columns: 1fr 80px 30px; } }
+.sw-bar-name { font-size: 0.86rem; font-weight: 600; color: var(--ink-700); }
+.sw-bar { height: 8px; border-radius: 999px; background: #eef0f7; overflow: hidden; }
+.sw-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--violet-400), var(--violet-600)); }
+.sw-bar-val { font-weight: 800; color: var(--violet-700); font-size: 0.86rem; text-align: right; font-family: var(--font-head); }
+
+/* Sites to avoid — red flags */
+.callout-rose { border-left: 4px solid var(--red-500); background: var(--red-soft); border-radius: 12px; padding: 15px 18px; color: var(--ink-700); }
+.callout-rose strong { color: var(--ink-900); }
+.flag-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 720px) { .flag-grid { grid-template-columns: 1fr; } }
+.flag-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); border-left: 4px solid var(--ink-400); }
+.flag-card.sev-critical { border-left-color: var(--red-500); }
+.flag-card.sev-high { border-left-color: var(--gold-500); }
+.flag-card.sev-medium { border-left-color: var(--ink-400); }
+.flag-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; flex-wrap: wrap; }
+.flag-head h3 { font-size: 1.02rem; margin: 0; }
+.flag-card p { margin: 0; color: var(--ink-600, var(--ink-700)); font-size: 0.9rem; }
+.sev-chip { font-size: 0.66rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 3px 9px; border-radius: 999px; }
+.sev-critical .sev-chip { background: var(--red-soft); color: var(--red-500); }
+.sev-high .sev-chip { background: var(--gold-soft); color: var(--gold-600); }
+.sev-medium .sev-chip { background: var(--slate-soft, rgba(80,90,120,0.1)); color: var(--ink-500); }
+
+/* Canada province selector */
+.province-select { margin-top: 16px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 16px 18px; }
+.province-label { display: block; font-family: var(--font-head); font-weight: 700; font-size: 0.85rem; margin-bottom: 10px; color: var(--ink-700); }
+.geo-chip.small { font-size: 0.8rem; padding: 6px 12px; }
+
 /* Geo country selector */
 .geo-select { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow-sm); }
 .geo-label { display: block; font-family: var(--font-head); font-weight: 800; font-size: 0.95rem; margin-bottom: 12px; }

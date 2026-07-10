@@ -6,6 +6,7 @@ import FaqSection from "@/components/Faq";
 import JsonLd from "@/components/JsonLd";
 import { RatingBadge, Stars, LogoChip, ProsCons, AuthorBox, AffiliateNotice, RgNotice, formatDate } from "@/components/Bits";
 import BonusWarning from "@/components/BonusWarning";
+import ScoreWidget from "@/components/ScoreWidget";
 import { bonusHeadline } from "@/data/casinos";
 import { reviewSchema, faqSchema, breadcrumbSchema } from "@/lib/schema";
 import { author, site } from "@/lib/site";
@@ -104,16 +105,8 @@ export default async function CasinoReviewPage({ params }: { params: Promise<{ s
 
             {/* Rating summary */}
             <h2 id="ratings">Rating summary</h2>
-            <div className="table-wrap" style={{ margin: "0 0 24px" }}>
-              <table className="data score-table" style={{ minWidth: 480 }}>
-                <thead><tr><th>Category</th><th>Score</th></tr></thead>
-                <tbody>
-                  {scoreRows(c).map(([n, s]) => (
-                    <tr key={n}><td>{n}</td><td>{s.toFixed(1)}</td></tr>
-                  ))}
-                  <tr className="overall"><td><strong>Overall</strong></td><td><strong>{c.rating.toFixed(1)}</strong></td></tr>
-                </tbody>
-              </table>
+            <div style={{ margin: "0 0 26px" }}>
+              <ScoreWidget overall={c.rating} criteria={scoreRows(c).map(([n, s]) => ({ name: n, score: s }))} />
             </div>
 
             {/* Pros cons */}

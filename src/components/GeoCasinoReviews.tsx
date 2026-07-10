@@ -13,6 +13,15 @@ const regShort: Record<string, string> = {
 
 type SortKey = "recommended" | "slots" | "min-deposit" | "bonus";
 
+const provinces = [
+  { id: "ontario", name: "Ontario", regulated: true },
+  { id: "british-columbia", name: "British Columbia", regulated: false },
+  { id: "quebec", name: "Quebec", regulated: false },
+  { id: "alberta", name: "Alberta", regulated: false },
+  { id: "manitoba", name: "Manitoba", regulated: false },
+  { id: "other", name: "Other province", regulated: false },
+];
+
 function isStale(iso: string | null): boolean {
   if (!iso) return false;
   const d = new Date(iso + "T00:00:00").getTime();
@@ -94,6 +103,7 @@ export default function GeoCasinoReviews() {
   const [fSpins, setFSpins] = useState(false);
   const [compare, setCompare] = useState<string[]>([]);
   const [showCompare, setShowCompare] = useState(false);
+  const [province, setProvince] = useState("ontario");
 
   // Auto-detect country (persisted choice wins over geo-IP).
   useEffect(() => {
@@ -121,8 +131,11 @@ export default function GeoCasinoReviews() {
     setChosen(true);
     setCompare([]);
     setShowCompare(false);
+    setProvince("ontario");
     try { localStorage.setItem("lcr-country", c); } catch {}
   }
+
+  const canadaBlocked = code === "canada" && province !== "ontario";
 
   function toggleCompare(id: string) {
     setCompare((prev) => (prev.includes(id) ? prev.filter((x) => x !== id) : prev.length < 3 ? [...prev, id] : prev));
@@ -171,7 +184,25 @@ export default function GeoCasinoReviews() {
 
       <div style={{ marginTop: 20 }}><CompliancePanel country={country} /></div>
 
-      {country.showRankings && baseOps.length > 0 ? (
+      {code === "canada" && (
+        <div className="province-select">
+          <span className="province-label">Select your province</span>
+          <div className="geo-chips">
+            {provinces.map((p) => (
+              <button key={p.id} className={`geo-chip small${p.id === province ? " active" : ""}`} onClick={() => setProvince(p.id)} aria-pressed={p.id === province}>{p.name}</button>
+            ))}
+          </div>
+          {canadaBlocked && (
+            <p className="cp-soon" style={{ marginTop: 12 }}>
+              Ontario is Canada&apos;s regulated commercial iGaming market. In {provinces.find((p) => p.id === province)?.name}, online
+              casino play typically runs through the provincial lottery platform or under different rules — we don&apos;t list
+              commercial operators here yet. Only play where it is legal in your province.
+            </p>
+          )}
+        </div>
+      )}
+
+      {country.showRankings && baseOps.length > 0 && !canadaBlocked ? (
         <>
           <div className="notice notice-affiliate" style={{ margin: "20px 0" }}>
             <span className="ic">ℹ️</span>
@@ -320,7 +351,7 @@ export default function GeoCasinoReviews() {
           )}
         </>
       ) : (
-        country.showRankings && (
+        country.showRankings && !canadaBlocked && (
           <div className="notice notice-legal" style={{ marginTop: 20 }}>
             <span className="ic">🔎</span>
             <div>No verified operators are listed for {country.name} yet. We only publish operators once their local licence is confirmed.</div>

@@ -43,6 +43,14 @@ export default function CasinoSafetyPage() {
       <section className="section--tight container">
         <SectionHead title="Safe Casino Checklist" intro="Run these checks before you register at any live casino." />
         <Checklist items={safeChecklist} twoCol />
+        <a href="/casino-safety/sites-to-avoid/" className="card card--link" style={{ display: "flex", gap: 14, alignItems: "center", marginTop: 20 }}>
+          <span style={{ fontSize: "1.6rem" }}>🚩</span>
+          <span style={{ flex: 1 }}>
+            <strong style={{ display: "block" }}>Casino sites to avoid — red flags index</strong>
+            <span className="text-muted small">Learn the warning signs that mark an operator to walk away from.</span>
+          </span>
+          <span className="card-cta">View red flags</span>
+        </a>
       </section>
     </SectionLanding>
   );

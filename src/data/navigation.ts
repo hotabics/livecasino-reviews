@@ -221,8 +221,8 @@ export const megaNav: MegaItem[] = [
         links: [
           { label: "Is a Casino Legit?", href: "/casino-safety/how-to-check-if-a-live-casino-is-legit/" },
           { label: "Safe Casino Checklist", href: "/casino-safety/safe-live-casino-checklist/" },
+          { label: "Sites to Avoid", href: "/casino-safety/sites-to-avoid/", badge: "New" },
           { label: "Risky Casino Signs", href: "/casino-safety/risky-online-casino-signs/" },
-          { label: "Are Games Rigged?", href: "/casino-safety/are-live-casino-games-rigged/" },
         ],
       },
       {

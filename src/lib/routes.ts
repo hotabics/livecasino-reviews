@@ -63,5 +63,6 @@ export function allUrls(): string[] {
   countries.forEach((c) => urls.add(`/countries/${c.slug}/`));
   articles.forEach((a) => urls.add(a.slug));
   urls.add("/sitemap-page/");
+  urls.add("/casino-safety/sites-to-avoid/");
   return [...urls].filter((u) => !noindex.has(u));
 }
