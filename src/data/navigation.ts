@@ -276,6 +276,7 @@ export const footerNav: { title: string; links: NavLink[] }[] = [
     links: [
       { label: "About Us", href: "/about/" },
       { label: "How We Review", href: "/how-we-review/" },
+      { label: "Site Updates", href: "/updates/" },
       { label: "Editorial Policy", href: "/editorial-policy/" },
       { label: "Affiliate Disclosure", href: "/affiliate-disclosure/" },
       { label: "Responsible Gambling", href: "/responsible-gambling/" },

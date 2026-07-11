@@ -21,6 +21,7 @@ export const staticPages: { label: string; href: string }[] = [
 
 export const trustPages: { label: string; href: string }[] = [
   { label: "How We Review", href: "/how-we-review/" },
+  { label: "Site Updates", href: "/updates/" },
   { label: "Responsible Gambling", href: "/responsible-gambling/" },
   { label: "About Us", href: "/about/" },
   { label: "Contact", href: "/contact/" },
